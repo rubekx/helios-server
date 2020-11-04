@@ -42,12 +42,20 @@ RUN a2enmod rewrite && \
     a2dissite default-ssl.conf && \
     a2ensite helios-ssl.conf
 
-RUN groupadd -r -g 1000 helios && useradd -r -g helios -u 1000 helios
+COPY ./ /var/www/helios-server
 
 WORKDIR /var/www/helios-server
-RUN chown helios:helios /var/www/helios-server
+
+RUN groupadd -r -g 1000 helios && useradd -r -g helios -u 1000 helios && \
+    chown helios:helios /var/www/helios-server && \
+    rm -rf /var/www/helios-server/.git && \
+    virtualenv /venv && \
+    source /venv/bin/activate && \
+    pip install --quiet --no-cache-dir -r requirements.txt
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 8000
 
+CMD [ "python manage.py runserver 0.0.0.0:8000" ]
 ENTRYPOINT ["/docker-entrypoint.sh"]
