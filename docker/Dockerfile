@@ -50,7 +50,7 @@ RUN groupadd -r -g 1000 helios && useradd -r -g helios -u 1000 helios && \
     chown helios:helios /var/www/helios-server && \
     rm -rf /var/www/helios-server/.git && \
     virtualenv /venv && \
-    source /venv/bin/activate && \
+    . /venv/bin/activate && \
     pip install --quiet --no-cache-dir -r requirements.txt
 
 EXPOSE 80
