@@ -340,7 +340,7 @@ AUTH_LDAP_USER_ATTR_MAP = get_from_env('AUTH_LDAP_USER_ATTR_MAP', {
     "first_name": "givenName",
     "last_name": "sn",
     "email": "mail",
-}
+})
 
 AUTH_LDAP_BIND_AS_AUTHENTICATING_USER = True
 
