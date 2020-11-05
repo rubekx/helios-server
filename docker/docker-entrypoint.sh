@@ -1,7 +1,7 @@
 #!/bin/bash
 virtualenv /venv
 source /venv/bin/activate
-pip install --quiet --no-cache-dir -r requirements.txt
+#pip install --quiet --no-cache-dir -r requirements.txt
 python manage.py compilemessages
 #python manage.py collectstatic --no-input
 python manage.py migrate
@@ -11,4 +11,4 @@ User.objects.create(is_staff=True,is_superuser=True, username='$DJANGO_SUPERUSER
 
 service supervisor start
 
-python /var/www/helios-server/manage.py runserver 0.0.0.0:8000
+python manage.py runserver 0.0.0.0:8000
