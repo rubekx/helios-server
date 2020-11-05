@@ -53,9 +53,10 @@ RUN groupadd -r -g 1000 helios && useradd -r -g helios -u 1000 helios && \
     . /venv/bin/activate && \
     pip install --quiet --no-cache-dir -r requirements.txt
 
+RUN mkdir /var/log/celery/ && touch /var/log/celery/celery.log
+
 EXPOSE 80
 EXPOSE 443
 EXPOSE 8000
 
-CMD [ "python /var/www/helios-server/manage.py runserver 0.0.0.0:8000" ]
 ENTRYPOINT ["/docker-entrypoint.sh"]

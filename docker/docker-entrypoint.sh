@@ -11,4 +11,4 @@ User.objects.create(is_staff=True,is_superuser=True, username='$DJANGO_SUPERUSER
 
 service supervisor start
 
-exec "$@"
+python /var/www/helios-server/manage.py runserver 0.0.0.0:8000
