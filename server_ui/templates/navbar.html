@@ -3,7 +3,7 @@
 <nav class="navbar navbar-default top-bar">
 	<div class="container-fluid">
 	<div class="row">
-		<a title="site IFSC" href="http://www.ifsc.edu.br">
+		<a title="site ABTMS" href="http://www.abtms.org.br">
             <img class="img-responsive logo" width="177" height="65" src="{% static "img/logo.png" %}" alt="Logo IFSC" />
 		</a>
 
@@ -43,7 +43,7 @@
                 {% if user.admin_p %}
                     <li><a class="navbar-brand" style="color:#FFFFFF;" href="/ajuda-gestor">{% trans "Help" %}</a></li>
                 {% else %}
-                    <li><a class="navbar-brand" style="color:#FFFFFF;" href="/ajuda">{% trans "Help" %}</a></li>
+                    {% comment %} <li><a class="navbar-brand" style="color:#FFFFFF;" href="/ajuda">{% trans "Help" %}</a></li> {% endcomment %}
                 {% endif %}
 			</ul>
 		</div>

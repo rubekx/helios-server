@@ -33,7 +33,7 @@
     Rua 14 de Julho, 150, Coqueiros, Florianópolis / SC - CEP: 88075-010
 </font>
 <br>
-<u><a href="http://www.ifsc.edu.br" target="_blank" style=""><font style="" face="verdana, sans-serif">www.ifsc.edu.br</font></a>
+<u><a href="http://www.abtms.org.br" target="_blank" style=""><font style="" face="verdana, sans-serif">www.abtms.org.br</font></a>
 </u>
 </body>
 </html>
