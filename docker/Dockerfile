@@ -16,6 +16,7 @@ RUN \
     build-essential \
     gettext \
     supervisor \
+    nano \
     redis-server \
     vim less &&\
     rm -rf /var/lib/apt/lists/* && \

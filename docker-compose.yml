@@ -7,7 +7,7 @@ services:
         ports:
             - "6432:5432"
         volumes:
-            - ~/docker-volumes/heliosdb/pgdata:/var/lib/postgresql/data
+            - ./docker/db/heliosdb/pgdata:/var/lib/postgresql/data
             - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
         networks:
             - helios-network
@@ -33,10 +33,10 @@ services:
         stop_grace_period: "${DOCKER_STOP_GRACE_PERIOD:-3s}"
         volumes:
             - ./.:/var/www/helios-server
-            - ~/docker-volumes/heliosapp/apache-logs:/var/log/apache2
-            - ~/docker-volumes/heliosapp/celery-logs:/var/log/celery
-            - ~/docker-volumes/heliosapp/redis-logs:/var/log/redis
-            - ~/docker-volumes/heliosapp/supervisor-logs:/var/log/supervisor
+            - ./docker/logs/apache-logs:/var/log/apache2
+            - ./docker/logs/celery-logs:/var/log/celery
+            - ./docker/logs/redis-logs:/var/log/redis
+            - ./docker/logs/supervisor-logs:/var/log/supervisor
 networks:
     helios-network:
         driver: bridge
