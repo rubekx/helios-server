@@ -13,3 +13,5 @@ env.sh
 .env
 docker/db/heliosdb/
 docker/logs/
+.vscode/
+celerybeat-schedule
