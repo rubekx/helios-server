@@ -51,6 +51,11 @@ class User(models.Model):
     return cls.objects.get(user_type = user_type, user_id = user_id)
   
   @classmethod
+  def get_by_user_id(cls, user_id):
+    if cls.objects.get(user_id = user_id): return True
+    else: return False
+  
+  @classmethod
   def update_or_create(cls, user_type, user_id, name=None, info=None, token=None):
     obj, created_p = cls.objects.get_or_create(user_type = user_type, user_id = user_id, defaults = {'name': name, 'info':info, 'token':token})
     
