@@ -91,12 +91,14 @@ def password_login_view(request):
           # getting user info from api
           data = api_user(password, username)
 
-          if data['result'] == True and username in settings.ALLOWED_TO_CREATE_ELECTION:     
+          if data['result'] == True:
             try:  
               if User.get_by_user_id(username):
                 user = User.get_by_type_and_id('password', username)                           
             except User.DoesNotExist:
-              user = User.objects.create(user_type='password', user_id=username, info={'name': data['username']},admin_p='t')
+              if username in settings.ALLOWED_TO_CREATE_ELECTION: admin_p = 't'
+              else: admin_p = 'f'
+              user = User.objects.create(user_type='password', user_id=username, info={'name': data['username']}, admin_p=admin_p)
           
             try:    
               if user :
