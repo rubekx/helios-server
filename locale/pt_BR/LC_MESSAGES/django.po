@@ -1662,6 +1662,11 @@ msgstr "limpar busca"
 msgid "of"
 msgstr ""
 
+
+#: helios/templates/elections_administered.html:9:
+msgid "voters / cast votes"
+msgstr "eleitores / votos depositados"
+
 #: helios/templates/stats_elections.html:30
 msgid "voters / cast votes"
 msgstr "eleitores / votos depositados"

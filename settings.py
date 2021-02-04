@@ -264,7 +264,10 @@ AUTH_DEFAULT_AUTH_SYSTEM = get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', 'password')
 
 
 ALLOWED_TO_CREATE_ELECTION = get_from_env('ALLOWED_TO_CREATE_ELECTION', '').split(",")
+
 API_ABTMS = get_from_env('API_ABTMS', '')
+API_ABTMS_CSV = get_from_env('API_ABTMS_CSV', '')
+API_ABTMS_TOKEN = get_from_env('API_ABTMS_TOKEN', '')
 
 # google
 GOOGLE_CLIENT_ID = get_from_env('GOOGLE_CLIENT_ID', '')

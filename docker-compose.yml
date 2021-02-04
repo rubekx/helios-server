@@ -11,6 +11,7 @@ services:
             - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
         networks:
             - helios-network
+        restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     helios:
         build:
             dockerfile: ./docker/Dockerfile

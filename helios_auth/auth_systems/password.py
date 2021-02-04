@@ -67,6 +67,11 @@ def api_user(password, username):
     data = ast.literal_eval(response.text.encode('utf8'))
     return data
 
+def search(list, elemtent):
+    for i in range(len(list)):
+        if list[i] == elemtent:
+            return True
+    return False
 
 def password_login_view(request):
     from helios_auth.view_utils import render_template
@@ -85,7 +90,7 @@ def password_login_view(request):
             request.session['auth_return_url'] = request.POST.get('return_url')
 
         if form.is_valid():
-          username = form.cleaned_data['username'].strip()
+          username = form.cleaned_data['username'].strip().lower()
           password = form.cleaned_data['password'].strip()    
 
           # getting user info from api
@@ -96,7 +101,7 @@ def password_login_view(request):
               if User.get_by_user_id(username):
                 user = User.get_by_type_and_id('password', username)                           
             except User.DoesNotExist:
-              if username in settings.ALLOWED_TO_CREATE_ELECTION: admin_p = 't'
+              if search(settings.ALLOWED_TO_CREATE_ELECTION, username): admin_p = 't'
               else: admin_p = 'f'
               user = User.objects.create(user_type='password', user_id=username, info={'name': data['username']}, admin_p=admin_p)
           
