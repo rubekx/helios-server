@@ -101,7 +101,6 @@ def password_login_view(request):
               if User.get_by_user_id(username):
                 user = User.get_by_type_and_id('password', username)                           
             except User.DoesNotExist:
-            #   if search(settings.ALLOWED_TO_CREATE_ELECTION, username): admin_p = 't'
               if data['admin'] == True: admin_p = 't'
               else: admin_p = 'f'
               user = User.objects.create(user_type='password', user_id=username, info={'name': data['username']}, admin_p=admin_p)
