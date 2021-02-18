@@ -1391,7 +1391,7 @@ def voters_upload(request, election):
       # adding values from api
       if not request.FILES.has_key('voters_file'):  
         param = None
-        if request.POST.get('voters_api') == 'Quites' : param = True
+        if request.POST.get('voters_api') == 'Associados adimplentes' : param = True
         api_csv(param)
         voters_file = open('helios/csv/file.csv')
         problems = []
